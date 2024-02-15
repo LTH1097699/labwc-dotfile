@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open Terminal Here</name>
+	<submenu></submenu>
+	<unique-id>1702784100854638-1</unique-id>
+	<command>sh -c &quot;cd %F; ~/.scripts/apps/launch-app.sh terminal&quot;</command>
+	<description>Open Terminal Emulator from current directory</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+</actions>

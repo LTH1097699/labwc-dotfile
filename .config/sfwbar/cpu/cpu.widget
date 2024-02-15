@@ -1,0 +1,27 @@
+scanner {
+  Exec("sh -c \"sh ~/.config/sfwbar/cpu/cpu.sh\"") {
+    CpuUtilization = Grab()
+  }
+}
+
+layout {
+    label {
+        style = "cpu"
+        css = "* {
+            min-width: 24px;
+            padding: 0px 0px 0px 4px;
+        }"
+        value = ""
+        #value = " "
+    }
+
+    label {
+        style = "cpu"
+        css = "* {
+            min-width: 23px;
+            padding: 0px 4px 0px 0px;
+        }"
+        interval = 1000
+        value = Str(CpuUtilization)+"%"
+    }
+}

@@ -1,0 +1,20 @@
+scanner {
+  Exec("sh -c \"sh ~/.config/sfwbar/battery/battery-script.sh\"") {
+    BatteryValue = Grab()
+  }
+}
+
+layout {
+  label {
+    style = "battery"
+    css = "* {
+        min-width: 60px;
+        padding: 0 4px;
+    }"
+    interval = 60000
+    value = $BatteryValue
+    #tooltip = Str(batpercent,0)+"% "+ $Batstate
+
+    #action[RightClick] = show seleect govenor
+  }
+}

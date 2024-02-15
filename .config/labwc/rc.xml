@@ -1,0 +1,254 @@
+<?xml version="1.0"?>
+<!--
+config preferences : https://www.mankier.com/5/labwc-config
+-->
+
+<labwc_config>
+
+	<!-- edge strength is in pixels -->
+	<resistance>
+		<screenEdgeStrength>20</screenEdgeStrength>
+		<windowEdgeStrength>10</windowEdgeStrength>
+	</resistance>
+	
+	<focus>
+		<followMouse>yes</followMouse>
+		<followMouseRequiresMovement>yes</followMouseRequiresMovement>
+		<raiseOnFocus>no</raiseOnFocus>
+	</focus>
+	
+	<!-- this seem not work-->
+	<placement>
+		<policy>UnderMouse</policy>
+	</placement>
+	
+    <core>
+<!--    The distance in pixels between views and output edges when using movement actions, for example MoveToEdge. Default is 0.-->
+        <gap>10</gap>
+        <decoration>server</decoration>
+
+<!--    Not understand this config, when enabled, everytime double click to translate word in firefox, it just loading forever, -->
+<!--    it stands that for until you double click another word, after that, first is disapears but second act like first(it stand forever)-->
+        <adaptiveSync>no</adaptiveSync>
+        <reuseOutputMode>yes</reuseOutputMode>
+<!--        <windowSwitcher show="yes" preview="yes" outlines="no" />-->
+    </core>
+
+    <theme>
+        <name>everforest</name>
+        <keepBorder>yes</keepBorder>
+<!--
+        <font name="JetBrains Mono" size="11"/>
+-->
+        
+		<font place="ActiveWindow">
+			<name>Terminus</name>
+			<size>9</size>
+			<weight>Bold</weight>
+			<slant>Normal</slant>
+		</font>
+		<font place="InactiveWindow">
+			<name>Terminus</name>
+			<size>9</size>
+			<slant>normal</slant>
+			<weight>normal</weight>
+		</font>
+		<font place="MenuItem">
+			<name>Terminus</name>
+			<size>9</size>
+			<slant>normal</slant>
+			<weight>normal</weight>
+		</font>
+		<font place="ActiveOnScreenDisplay">
+			<name>Terminus</name>
+			<size>9</size>
+			<weight>Bold</weight>
+			<slant>Normal</slant>
+		</font>
+		<font place="InactiveOnScreenDisplay">
+			<name>Terminus</name>
+			<size>9</size>
+			<weight>Normal</weight>
+			<slant>Normal</slant>
+		</font>
+    </theme>
+
+    <desktops>
+		<number>4</number>
+        <popupTime>875</popupTime>
+        <names>
+            <name>I</name>
+            <name>II</name>
+            <name>III</name>
+            <name>IV</name>
+        </names>
+    </desktops>
+    
+	<resize>
+		<drawContents>yes</drawContents>
+		<popupShow>Always</popupShow>
+		<popupPosition>Center</popupPosition>
+		<popupFixedPosition>
+			<x>10</x>
+			<y>10</y>
+		</popupFixedPosition>
+	</resize>
+
+<!--
+Return mean enter on keyboard
+W is super key
+-->
+    <keyboard>
+
+        <numlock>on</numlock>
+        <layoutScope>global</layoutScope>
+        <repeatRate>25</repeatRate>
+        <repeatDelay>600</repeatDelay>
+
+        <keybind key="A-Tab">
+            <action name="NextWindow" />
+        </keybind>
+        <keybind key="W-c">
+            <action name="Close" />
+        </keybind>
+        <keybind key="W-Return">
+            <action name="Execute" command="urxvt"/>
+        </keybind>
+
+        <!-- Open bemenu -->
+        <keybind key="W-d">
+            <action name="Execute" command="bemenu-run"/>
+        </keybind>
+
+        <keybind key="A-F4">
+            <action name="Close" />
+        </keybind>
+        <keybind key="W-a">
+            <action name="ToggleMaximize" />
+        </keybind>
+
+        <!-- Move To Edge -->
+        <keybind key="A-Left">
+            <action name="MoveToEdge" direction="left" />
+        </keybind>
+        <keybind key="A-Right">
+            <action name="MoveToEdge" direction="right" />
+        </keybind>
+        <keybind key="A-Up">
+            <action name="MoveToEdge" direction="up" />
+        </keybind>
+        <keybind key="A-Down">
+            <action name="MoveToEdge" direction="down" />
+        </keybind>
+
+        <!-- Snap To Edge -->
+        <keybind key="W-Left">
+            <action name="SnapToEdge" direction="left" />
+        </keybind>
+        <keybind key="W-Right">
+            <action name="SnapToEdge" direction="right" />
+        </keybind>
+        <keybind key="W-Up">
+            <action name="SnapToEdge" direction="up" />
+        </keybind>
+        <keybind key="W-Down">
+            <action name="SnapToEdge" direction="down" />
+        </keybind>
+
+        <keybind key="A-Space">
+            <action name="ShowMenu" menu="client-menu" />
+        </keybind>
+
+<!--        <keybind key="XF86_AudioLowerVolume">-->
+<!--            <action name="Execute" command="amixer sset Master 5%-" />-->
+<!--        </keybind>-->
+<!--        <keybind key="XF86_AudioRaiseVolume">-->
+<!--            <action name="Execute" command="amixer sset Master 5%+" />-->
+<!--        </keybind>-->
+<!--        <keybind key="XF86_AudioMute">-->
+<!--            <action name="Execute" command="amixer sset Master toggle" />-->
+<!--        </keybind>-->
+
+        <!-- Black light -->
+        <keybind key="XF86_MonBrightnessUp">
+            <action name="Execute" command="brightnessctl set +10%" />
+        </keybind>
+        <keybind key="XF86_MonBrightnessDown">
+            <action name="Execute" command="brightnessctl set 10%-" />
+        </keybind>
+
+        <!-- Go to desktop -->
+        <keybind key="W-1">
+            <action name="GoToDesktop">
+                <to>I</to>
+            </action>
+        </keybind>
+        <keybind key="W-2">
+            <action name="GoToDesktop">
+                <to>II</to>
+            </action>
+        </keybind>
+        <keybind key="W-3">
+            <action name="GoToDesktop">
+                <to>III</to>
+            </action>
+        </keybind>
+        <keybind key="W-4">
+            <action name="GoToDesktop">
+                <to>IV</to>
+            </action>
+        </keybind>
+        
+<!--
+        not work
+-->
+		<keybind key="S-W-2">
+			<action name="SendToDesktop">
+				<desktop>2</desktop>
+			</action>
+		</keybind>
+        
+        <!--
+          Remove a previously defined keybind
+          A shorter alternative is <keybind key="W-F4" />
+        -->
+<!--        <keybind key="W-F4">-->
+<!--            <action name="None"/>-->
+<!--        </keybind>-->
+
+
+<!--        resize by key, not know how to stop if reach to edge of screen -->
+<!--        <keybind key="S-Right">-->
+<!--            <action name="ResizeRelative" left="" right="10" top="" bottom="" />-->
+<!--        </keybind>-->
+
+        <!-- Open note - obsidian -->
+        <keybind key="W-S-n">
+            <action name="Execute" command="obsidian" />
+        </keybind>
+
+        <!-- Open custom dmenu using bemenu -->
+        <keybind key="W-m">
+            <action name="Execute" >
+                <command>~/.config/mymenu/dmenu-menu.sh</command>
+            </action>
+        </keybind>
+
+    </keyboard>
+
+    <!-- # MOUSE-->
+    <mouse>
+        <default/>
+
+        <context name="Root">
+            <mousebind button="Left" action="Press">
+                <action name="None"/>
+            </mousebind>
+
+            <mousebind button="Right" action="Press">
+                <action name="ShowMenu" menu="right-click-menu"/>
+            </mousebind>
+        </context>
+    </mouse>
+
+</labwc_config>

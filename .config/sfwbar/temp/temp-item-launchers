@@ -1,0 +1,15 @@
+label {
+        css = "* {
+            font: 10pt Mono;
+            background-color: #64727D;
+            -GtkWidget-align: 0.5;
+            -GtkWidget-hexpand: true;
+            -GtkWidget-vexpand: true;
+            min-width: 26px;
+            padding: 0px 4px;
+            color: #ffffff;
+        }"
+        style = "taskbar_normal"
+        value = "󰡨"
+        action = "./usr/share/applications/docker-desktop.desktop"
+    }

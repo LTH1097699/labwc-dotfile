@@ -1,0 +1,29 @@
+scanner {
+  Exec("sh -c \"sh ~/.config/sfwbar/memories/ram.sh\"") {
+    MemUtilization = Grab()
+  }
+}
+
+
+
+layout {
+
+    label {
+        style = "ram"
+        css = "* {
+            min-width: 26px;
+            padding: 0px 0px 0px 4px;
+        }"
+        value = ""
+    }
+
+    label {
+        style = "ram"
+        css = "* {
+            min-width: 23px;
+            padding: 0px 4px 0px 0px;
+        }"
+        interval = 3000
+        value = $MemUtilization
+    }
+}

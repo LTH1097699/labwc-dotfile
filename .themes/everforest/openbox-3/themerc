@@ -1,0 +1,104 @@
+## Openbox Theme ##################################################
+## This is based on Theme everforest of ArchCraft
+## ############# ##################################################
+
+#-- Window geometry -----------------------------------------------
+border.width: 0
+padding.height: 10
+
+#-- Border colors -------------------------------------------------
+window.active.border.color: #1e2327
+window.inactive.border.color: #f6f5f4
+
+
+#-- Text shadows --------------------------------------------------
+## This seem non effect
+window.active.label.text.font: shadow=n
+window.inactive.label.text.font: shadow=n
+menu.items.font: shadow=n
+menu.title.text.font: shadow=n
+osd.label.text.font: shadow=n
+
+#-- window titlebar background ------------------------------------
+window.active.title.bg.color: #1e2327
+window.inactive.title.bg.color: #1e2327
+
+#-- window titlebar text ------------------------------------------
+window.active.label.text.color: #D3C6AA
+window.inactive.label.text.color: #5B6B74
+window.label.text.justify: Left
+
+#-- WINDOW BUTTONS ------------------------------------------------
+window.active.button.unpressed.image.color: #D3C6AA
+window.inactive.button.unpressed.image.color: #2b3339
+
+#window.active.handle.bg.color: #2b3339
+#window.active.grip.bg.color: #2b3339
+
+#window.active.button.unpressed.bg.color: #1e2327
+
+#window.active.button.pressed.bg.color: #1e2327
+#window.active.button.pressed.image.color: #bec5b2
+
+#window.active.button.disabled.bg.color: #1e2327
+#window.active.button.disabled.image.color: #2F3D44
+
+#window.active.button.hover.bg.color: #1e2327
+#window.active.button.hover.image.color: #bec5b2
+
+#window.active.button.toggled.unpressed.bg.color: #1e2327
+#window.active.button.toggled.unpressed.image.color: #D3C6AA
+
+#window.active.button.toggled.pressed.bg.color: #1e2327
+#window.active.button.toggled.pressed.image.color: #bec5b2
+
+#window.active.button.toggled.hover.bg.color: #1e2327
+#window.active.button.toggled.hover.image.color: #bec5b2
+
+#-- BUTTONS ------------------------------------------------------
+window.active.button.close.unpressed.image.color: #D3C6AA
+window.active.button.close.pressed.image.color: #D3C6AA
+window.active.button.close.hover.image.color: #D3C6AA
+
+window.active.button.max.unpressed.image.color: #D3C6AA
+window.active.button.max.pressed.image.color: #D3C6AA
+window.active.button.max.hover.image.color: #D3C6AA
+
+window.active.button.iconify.unpressed.image.color: #D3C6AA
+window.active.button.iconify.pressed.image.color: #D3C6AA
+window.active.button.iconify.hover.image.color: #D3C6AA
+
+#-- MENU ---------------------------------------------------------
+#menu.title.text.justify: Center
+
+menu.overlap.x: 0
+menu.overlap.y: 0
+menu.width.min: 20
+menu.width.max: 200
+
+menu.items.bg.color: #1e2327
+menu.items.text.color: #D3C6AA
+menu.items.active.bg.color: #bec5b2
+menu.items.active.text.color: #1e2327
+menu.items.padding.x: 7
+menu.items.padding.y: 4
+
+menu.separator.width: 1
+menu.separator.padding.width: 6
+menu.separator.padding.height: 3
+menu.separator.color: #1e2327
+
+#-- OSD -------------------------------------------------
+osd.bg.color: #1e2327
+osd.border.color: #2b3339
+osd.border.width: 1
+osd.label.text.color: #D3C6AA
+
+osd.window-switcher.width: 600
+osd.window-switcher.padding: 4
+osd.window-switcher.item.padding.x: 10
+osd.window-switcher.item.padding.y: 1
+osd.window-switcher.item.active.border.width: 2
+
+osd.workspace-switcher.boxes.width: 20
+osd.workspace-switcher.boxes.height: 20

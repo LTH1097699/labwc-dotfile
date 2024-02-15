@@ -1,0 +1,17 @@
+# Simple labwc environment file
+
+# This allows xdg-desktop-portal-wlr to function (e.g. for screen-recording)
+XDG_CURRENT_DESKTOP=wlroots
+XDG_SESSION_DESKTOP=wlroots
+XDG_SESSION_TYPE=wlroots
+
+## Set keyboard layout is us
+XKB_DEFAULT_LAYOUT=us
+
+## Force firefox to use wayland backend
+MOZ_ENABLED_WAYLAND=1
+
+# For Java applications such as JetBrains/Intellij Idea, set this variable
+# to avoid menus with incorrect offset and blank windows
+# See https://github.com/swaywm/sway/issues/595
+_JAVA_AWT_WM_NONREPARENTING=1

@@ -1,0 +1,10 @@
+layout {
+	label {
+        style = "separate-line"
+        css = "* {
+            min-width: 24px;
+            padding: 0px 0px 0px 0px;
+        }"
+        value = "|"
+    }
+}

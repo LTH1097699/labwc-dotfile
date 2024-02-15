@@ -1,0 +1,11 @@
+layout {
+	label {
+		style = "menu"
+		css = "* {
+			min-width: 60px;
+			padding: 0 4px;
+		}"
+		value = "󱗼"
+		action[LeftClick] = "rofi -show"
+	}
+}

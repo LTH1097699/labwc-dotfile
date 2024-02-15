@@ -1,0 +1,27 @@
+# ignore everything
+/*
+
+# but not these files
+!.Xresources
+!.bashrc
+
+!/.config/
+/.config/*
+!/.config/labwc/
+!/.config/sfwbar/
+!/.config/mymenu/
+
+!/.config/Thunar/
+/.config/Thunar/*
+!/.config/Thunar/uca.xml
+
+!/.config/geany/
+/.config/geany/*
+!/.config/geany/colorschemes/
+!/.config/geany/custom.css
+!/.config/geany/geany.conf
+!/.config/geany/geany.css
+!/.config/geany/keybindings.conf
+
+
+!/.themes/

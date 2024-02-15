@@ -1,0 +1,42 @@
+
+layout {
+    label {
+		style = "myterminal"
+        css = "* {
+            min-width: 26px;
+            padding: 0px 4px;
+        }"
+        value = ""
+        action = "urxvt"
+    }
+
+    label {
+		style = "filemanager"
+        css = "* {
+            min-width: 26px;
+            padding: 0px 4px;
+        }"
+        value = ""
+        action = "thunar"
+    }
+
+    label {
+		style = "mybrowser"
+        css = "* {
+            min-width: 26px;
+            padding: 0px 4px;
+        }"        
+        value = "󰈹"
+        action = "firefox"
+    }
+
+    label {
+        style = "dbeaver"
+        css = "* {
+            min-width: 26px;
+            padding: 0px 4px;
+        }"
+        value = "dbeaver"
+        action = "dbeaver"
+    }
+}

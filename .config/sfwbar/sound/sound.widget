@@ -1,0 +1,48 @@
+# Todo do not understand how this work so I use built in to get sink vol
+#TriggerAction "get_sink_volume", SetValue "sink_volume", "Scanning ..."
+#scanner{
+#    Exec("pactl get-sink-volume @DEFAULT_SINK@ | grep '%'"){
+#        SinkVolume = Grab()
+#    }
+#}
+
+module("pulsectl")
+define Volume = Val(Pulse("sink-volume"))
+
+function("sinks_list") {
+    MenuClear "sinks"
+    PipeRead "~/.config/sfwbar/sound/sinks.sh"
+    Menu "sinks"
+}
+
+layout {
+        label {
+            style = "volume"
+            css = "* {
+                min-width: 60px;
+                padding: 0 4px;
+            }"
+            value = "sinks"
+            action = Function "sinks_list"
+        }
+
+        label {
+            style = "volume"
+            value = ""
+            action = "sh -c \"sh ~/.config/sfwbar/sound/sound-script.sh +\""
+        }
+
+        label "sink_volume" {
+            style = "volume"
+            trigger = "pulse"
+            value = Str(Volume)
+        }
+
+        label {
+            style = "volume"
+            value = ""
+            action = "sh -c \"sh ~/.config/sfwbar/sound/sound-script.sh -\""
+        }
+    
+}
+

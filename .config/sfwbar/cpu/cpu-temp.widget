@@ -1,0 +1,17 @@
+scanner {
+  Exec("sh -c \"sh ~/.config/sfwbar/cpu/cpu-temp-script.sh\"") {
+    CPUTemp = Grab()
+  }
+}
+
+layout {
+    label {
+        style = "cputemp"
+        css = "* {
+            min-width: 60px;
+            padding: 0 4px;
+        }"
+        interval = 2000
+        value = $CPUTemp
+    }
+}

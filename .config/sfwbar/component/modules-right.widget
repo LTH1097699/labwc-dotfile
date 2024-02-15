@@ -1,0 +1,18 @@
+
+layout {
+
+    include("battery/battery.widget")
+    
+	include("separate-line.widget")
+
+	include("cpu/cpu-temp.widget")
+	
+	include("separate-line.widget")
+	
+	include("clock/clock.widget")
+	
+	include("separate-line.widget")
+	
+	include("menu.widget")
+
+}

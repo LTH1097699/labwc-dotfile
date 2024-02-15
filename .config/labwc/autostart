@@ -1,0 +1,24 @@
+# autostart file for a labwc
+#
+# ░█▀█░█░█░▀█▀░█▀█░█▀▀░▀█▀░█▀█░█▀▄░▀█▀
+# ░█▀█░█░█░░█░░█░█░▀▀█░░█░░█▀█░█▀▄░░█░
+# ░▀░▀░▀▀▀░░▀░░▀▀▀░▀▀▀░░▀░░▀░▀░▀░▀░░▀░
+#
+#
+
+exec >/dev/null 2>&1
+
+# Set background color or image (below the desktop)
+#swaybg -i /usr/share/lxqt/wallpapers/origami-dark-labwc.png  >/dev/null 2>&1 &
+swaybg -c '#113344' >/dev/null 2>&1 &
+
+# Faster startup for GTK apps (not test)
+#dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY > /dev/null 2>&1 &
+
+export DISPLAY=:0.0 &
+
+exec xrdb ~/.Xresources &
+
+# Launch bar with style
+sfwbar -f ~/.config/sfwbar/test.config -c ~/.config/sfwbar/style-taskbar.css  >/dev/null 2>&1 &
+

@@ -1,0 +1,11 @@
+layout {
+	label {
+		style = "myclock"
+		css = "* {
+			min-width: 80px;
+			padding: 0 4px;
+		}"
+		interval = 1000
+		value = Time("%k:%M %Z %x")
+	}
+}

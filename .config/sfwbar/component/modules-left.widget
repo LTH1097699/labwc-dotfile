@@ -1,0 +1,8 @@
+layout {
+	include("cpu/cpu.widget")
+	
+	include("separate-line.widget")
+	
+	include("memories/ram.widget")
+	
+}

@@ -1,0 +1,387 @@
+# Override a gtk theme
+# theme = "Adwaita-dark"
+
+# Display minimized windows on taskbars across all outputs
+# DisownMinimized = true
+
+# Select terminal emulator to use
+#Set URxvt = "urxvt"
+
+#TriggerAction "SIGRTMIN+1", SwitcherEvent "forward"
+#TriggerAction "SIGRTMIN+2", SwitcherEvent "back"
+
+Function("SfwbarInit") {
+  SetLayer "panel", "bottom"
+  SetLayer "launcher", "bottom"
+  SetExclusiveZone "panel", "32"
+  SetBarSize "80%"
+
+#    SetMonitor "panel", "DVI-D-1"
+#    SetMonitor "launcher", "DVI-D-1"
+    SetBarSize "launcher", "100%"
+#  SetMirror "*"
+#  SetBarSensor "1000"
+#  SetExclusiveZone "0"
+}
+
+# map icon for app when missing. for more info : https://github.com/LBCrion/sfwbar/blob/main/doc/sfwbar.rst#user-content-miscellaneous
+# recommended add to ~/.icons, this can not find inside folder so must put a top in icons
+MapAppId ".*docker-desktop$", "docker-desktop"
+
+# Window Placer
+placer {
+  xorigin = 5  # place the first window at X% from the left
+  yorigin = 5  # place the first window at X% from the top
+  xstep = 5    # step by X% of desktop horizontally
+  ystep = 5    # step by X% of desktop vertically
+  children = true
+}
+
+# Task Switcher
+switcher {
+  interval = 700
+  icons = true
+  labels = false
+  cols = 5
+}
+
+include("winops.widget")
+
+## Launcher layout
+layout "launcher" {
+    include("launcher.widget")
+    taskbar {
+            rows = 1
+            css = "* { -GtkWidget-hexpand: true; }" # stretch horizontally
+            group = false
+            icons = true
+            labels = true
+            # on right-click open winops
+            action[3] = Menu "winops"
+        }
+}
+## /Launcher layout
+window#launcher {
+  -GtkWidget-direction: top;
+  border-radius: 6px;
+  background-color: rgba(17, 17, 17, 0.222);
+}
+
+layout "pannel" {
+#  css = "* { min-height: 20px }"
+  style = frame
+  include("startmenu.widget")
+
+    button {
+      style = "launcher"
+      value = "thunar"
+      action = "thunar"
+    }
+
+    button {
+      style = "launcher"
+      value = "firefox"
+      action = "firefox"
+    }
+
+    button {
+      style = "launcher"
+      value = "dbeaver"
+      action = "dbeaver"
+    }
+
+    button {
+      style = "launcher"
+      value = "docker-desktop"
+      action = "/opt/docker-desktop/bin/docker-desktop"
+    }
+
+#  taskbar {
+#    style = "taskbar"
+#    rows = 1;
+#    icons = true;
+#    labels = true;
+#    sort = false;
+#    action[3] = Menu "winops"
+#  }
+
+  label {
+    css = "* { -GtkWidget-hexpand: true; }"
+  }
+
+  pager {
+    style = "pager"
+    rows = 1
+    pins = "1","2","3","4"
+    preview = true
+  }
+
+  tray {
+    rows = 1
+  }
+
+  include("battery-svg.widget")
+  include("bluez.widget")
+  include("network-module.widget")
+  include("sway-lang.widget")
+
+  grid {
+#    css = "* { -GtkWidget-direction: bottom; }"
+    label {
+      style = "time"
+      interval = 1000
+      css = "* { font: 10pt Mono; font-weight: 600; -GtkWidget-align: 0.5; -GtkWidget-hexpand: true; -GtkWidget-vexpand: true; min-width: 80px; padding-right: 4px; }"
+      value = Time("[%k:%M %Z ][ %x ]")
+    }
+  }
+}
+
+#CSS
+#hidden {
+  -GtkWidget-visible: false;
+}
+
+button,
+button image {
+  outline-style: none;
+  box-shadow: none;
+  background-image: none;
+  border-image: none;
+
+  background: none;
+
+}
+
+#button {
+#  box-shadow: none;
+#  border-image: none;
+#  background-image: none;
+#  background: none;
+#  outline-style: none;
+#}
+
+button#startmenu {
+  border: none;
+}
+
+label {
+  font: 14px Sans;
+}
+
+button#module {
+  border: none;
+  padding: 3px;
+  margin: 0px;
+  -GtkWidget-vexpand: true;
+}
+
+button#module image {
+  min-height: 16px;
+  min-width: 16px;
+  padding: 0px;
+  margin: 0px;
+  -GtkWidget-valign: center;
+  -GtkWidget-vexpand: true;
+}
+
+button#taskbar_normal,
+button#taskbar_active,
+button#taskbar_normal:hover {
+  border-radius: 3px;
+  border-width: 0px;
+  -GtkWidget-hexpand: false;
+}
+
+grid#taskbar > :not(:last-child) button#taskbar_normal:hover,
+grid#taskbar > :not(:last-child) button#taskbar_active,
+grid#taskbar > :not(:last-child) button#taskbar_normal {
+  border-radius: 0px;
+  border-right: 1px solid alpha(@theme_fg_color,0.15);
+}
+button#taskbar_active {
+  background-color: rgba(199,227,255,0.6);
+}
+
+button#taskbar_normal:hover {
+  background-color: rgba(213,213,213,0.6);
+}
+
+button#taskbar_normal grid,
+button#taskbar_active grid,
+button#taskbar_normal:hover grid {
+  -GtkWidget-valign: center;
+}
+
+button#taskbar_normal image,
+button#taskbar_active image,
+button#taskbar_normal:hover image {
+  min-width: 24px;
+  min-height: 24px;
+  padding-right: 6px;
+}
+
+button#taskbar_normal label,
+button#taskbar_active label,
+button#taskbar_normal:hover label {
+}
+
+button#tray_active,
+button#tray_passive,
+button#tray_attention {
+  margin: 0px;
+  border: none;
+  padding: 0px;
+}
+
+button#tray_active image,
+button#tray_passive image,
+button#tray_attention image {
+  -GtkWidget-valign: center;
+  -GtkWidget-vexpand: true;
+  min-height: 16px;
+  min-width: 16px;
+  padding: 3px;
+  margin: 0px;
+  border: none;
+}
+
+grid#pager {
+  border-radius: 3px;
+  border-color: @theme_fg_color;
+  border-style: solid;
+  border-width: 1px;
+  margin: 2px;
+  padding: 0px;
+}
+
+button#pager_normal,
+button#pager_visible,
+button#pager_focused {
+  border-radius: 5px;
+  border: none;
+  outline: 0px;
+  margin-right: 2px;
+  margin-left: 2px;
+  padding: 0px;
+  font: 0.3cm Sans;
+  -GtkWidget-halign: center;
+  -GtkWidget-valign: center;
+}
+
+button#pager_focused {
+  background-color: rgba(199,227,255,0.6);
+}
+
+button#pager_preview {
+  border-radius: 0;
+  border-color: #000000;
+  border-width: 0.25mm;
+  color: #777777;
+  min-width: 5cm;
+  min-height: 2.8125cm;
+}
+
+#menu_item,
+#menu_item image,
+#menu_item label {
+  -GtkWidget-halign: start;
+}
+
+#menu_item image {
+  min-width: 16px;
+  min-height: 16px;
+  padding-right: 2px;
+}
+
+label#clock {
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+chart#cpu_chart {
+  background: rgba(127,127,127,0.3);
+  min-width: 9px;
+  -GtkWidget-vexpand: true;
+  margin: 2px;
+  border: 1px solid @theme_fg_color;
+  color: red;
+}
+
+progressbar#memory {
+  -GtkWidget-direction: top;
+  -GtkWidget-vexpand: true;
+  min-width: 9px;
+  border: 1px solid @theme_fg_color;
+  margin: 2px;
+}
+
+progressbar#memory trough {
+  min-height: 2px;
+  min-width: 9px;
+  border: none;
+  border-radius: 0px;
+  background: rgba(127,127,127,0.3);
+}
+
+progressbar#memory progress {
+  -GtkWidget-hexpand: true;
+  min-width: 9px;
+  border-radius: 0px;
+  border: none;
+  margin: 0px;
+  background-color: alpha(green,0.9);
+}
+
+grid#switcher_active image,
+grid#switcher_active {
+  min-width: 50px;
+  min-height: 50px;
+  padding: 5px;
+  background-color: #bbddff;
+  border-radius: 5px;
+  -GtkWidget-hexpand: true;
+}
+
+grid#switcher_normal image,
+grid#switcher_normal {
+  min-width: 50px;
+  min-height: 50px;
+  padding: 5px;
+  -GtkWidget-direction: right;
+  -GtkWidget-hexpand: true;
+}
+
+window#switcher {
+  border: 1px solid @borders;
+  border-radius: 6px;
+  padding: 60px;
+  -GtkWidget-hexpand: true;
+}
+
+grid#switcher {
+  border-radius: 5px;
+  padding: 5px;
+  -GtkWidget-hexpand: true;
+}
+
+label#sway_lang {
+  margin-left: 3px;
+  margin-right: 5px;
+}
+
+#window {
+#  -GtkWidget-direction: top;
+#
+#}
+
+window#launcher {
+  -GtkWidget-direction: bottom;
+  border-radius: 6px;
+  background-color: rgba(17, 17, 17, 0.222);
+}
+
+window#pannel {
+  -GtkWidget-direction: top;
+}
+
+
